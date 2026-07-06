@@ -126,7 +126,8 @@
   .porte-tete { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
   .porte-nom { font-family: var(--serif); font-size: 1.14rem; color: #f5edd8; }
   .porte-etat { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--or-doux); white-space: nowrap; }
-  .porte-desc { display: block; margin-top: 0.35rem; font-size: 0.9rem; color: rgba(237,241,246,0.64); }
+  .porte-verbe { display: block; font-family: var(--serif); font-style: italic; color: var(--or); font-size: 1.06rem; margin: 0.2rem 0 0.15rem; letter-spacing: 0.01em; }
+  .porte-desc { display: block; margin-top: 0.15rem; font-size: 0.9rem; color: rgba(237,241,246,0.64); }
   .porte.bientot { opacity: 0.62; }
   .porte.bientot .porte-etat { color: var(--brume); }
   .porte-plus { display: inline-block; margin: 0.5rem 0 0.2rem 0.3rem; font-size: 0.82rem; color: var(--or-doux); text-decoration: none; border-bottom: 1px dotted var(--filet); transition: color 0.3s ease; }
@@ -213,38 +214,43 @@
   <section>
     <span class="sur-titre">Les portes</span>
     <h2>Les mondes de Mana.</h2>
-    <p>Chaque monde a son nom, son territoire, sa vie propre — et la même boussole.</p>
+    <p>Prendre soin, c'est <strong>transmettre</strong>, <strong>relier</strong>, <strong>orchestrer</strong>, <strong>protéger</strong>, <strong>reconnaître</strong>. Chaque monde porte l'un de ces gestes.</p>
     <ul class="portes">
       <li>
         <a class="porte" href="https://manafamily.org">
-          <span class="porte-tete"><span class="porte-nom">Mana Family</span><span class="porte-etat">Ouvert →</span></span>
-          <span class="porte-desc">Les cercles familiaux vivants. La présence qui veille, la mémoire qui dure.</span>
+          <span class="porte-tete"><span class="porte-nom">MANA Family</span><span class="porte-etat">Ouvert →</span></span>
+          <span class="porte-verbe">Transmettre.</span>
+          <span class="porte-desc">Les cercles familiaux vivants — la présence qui veille, la mémoire qui dure.</span>
         </a>
-        <a class="porte-plus" href="mana-family.html">En savoir plus sur Mana Family →</a>
-      </li>
-      <li>
-        <a class="porte" href="https://mana.bzh">
-          <span class="porte-tete"><span class="porte-nom">Mana citoyen</span><span class="porte-etat">Ouvert →</span></span>
-          <span class="porte-desc">L'entraide entre voisins d'un même territoire — se rendre service, reconnaître le temps donné.</span>
-        </a>
+        <a class="porte-plus" href="mana-family.html">En savoir plus sur MANA Family →</a>
       </li>
       <li>
         <a class="porte" href="https://manafrance.org">
-          <span class="porte-tete"><span class="porte-nom">Mana France</span><span class="porte-etat">Ouvert →</span></span>
-          <span class="porte-desc">Le chapitre français et l'espace des associations partenaires.</span>
+          <span class="porte-tete"><span class="porte-nom">MANA France</span><span class="porte-etat">Ouvert →</span></span>
+          <span class="porte-verbe">Relier.</span>
+          <span class="porte-desc">L'entraide entre voisins d'un même territoire — le coup de main, la mission, le talent partagé.</span>
         </a>
       </li>
       <li>
         <a class="porte" href="https://temposystem.eu">
           <span class="porte-tete"><span class="porte-nom">TempoSystem</span><span class="porte-etat">En coulisse →</span></span>
-          <span class="porte-desc">La comptabilité discrète du temps que les êtres se consacrent. Elle travaille en coulisse ; on ne la voit jamais.</span>
+          <span class="porte-verbe">Orchestrer.</span>
+          <span class="porte-desc">La partition discrète du temps que les êtres se consacrent. Elle joue en coulisse ; on ne la voit jamais.</span>
         </a>
       </li>
       <li>
-        <span class="porte bientot">
-          <span class="porte-tete"><span class="porte-nom">Developer</span><span class="porte-etat">Bientôt</span></span>
-          <span class="porte-desc">Bâtir sous la Constitution : adopter le texte, réutiliser les briques communes, rejoindre l'alliance.</span>
-        </span>
+        <a class="porte" href="https://alliancemana.org">
+          <span class="porte-tete"><span class="porte-nom">Alliance MANA</span><span class="porte-etat">Ouvert →</span></span>
+          <span class="porte-verbe">Protéger.</span>
+          <span class="porte-desc">Le collectif qui défend la Constitution et ses membres — les signataires, les artisans du numérique.</span>
+        </a>
+      </li>
+      <li>
+        <a class="porte" href="https://manatimebank.org">
+          <span class="porte-tete"><span class="porte-nom">MANA TimeBank</span><span class="porte-etat">Ouvert →</span></span>
+          <span class="porte-verbe">Reconnaître.</span>
+          <span class="porte-desc">Rendre visible et honorer le temps partagé — l'heure offerte, le talent reconnu, la gratitude.</span>
+        </a>
       </li>
     </ul>
   </section>

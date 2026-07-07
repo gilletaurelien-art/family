@@ -9,6 +9,7 @@
 <meta property="og:description" content="Pas de flux. Pas de chiffres rouges. Une constellation qui respire au rythme de vos soins.">
 <meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="mana-wallpaper.css">
 <style>
   :root{
     /* Tokens de la référence manafrance.org */
@@ -36,26 +37,9 @@
   body{margin:0;font-family:var(--sans);color:var(--encre);line-height:1.7;
     background:var(--ecume);min-height:100vh}
 
-  /* Le wallpaper signature (porté de manafrance.org) */
-  .mana-wallpaper{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;
-    background:
-      radial-gradient(ellipse 700px 600px at 78% 8%, var(--wp-a), transparent 65%),
-      radial-gradient(ellipse 520px 420px at 88% 32%, var(--wp-b), transparent 60%),
-      linear-gradient(180deg, var(--wp-top) 0%, var(--ecume) 100%)}
-  .mana-wallpaper::before{position:absolute;inset:0;content:"";
-    background-image:url('Logo_MANA_Symbol_logo.png');background-repeat:no-repeat;
-    background-position:right -90px center;background-size:min(58vw,620px);opacity:.055}
-  .mana-wallpaper::after{position:absolute;inset:0;content:"";
-    background-image:linear-gradient(var(--wp-grid) 1px,transparent 1px),linear-gradient(90deg,var(--wp-grid) 1px,transparent 1px);
-    background-size:88px 88px;-webkit-mask-image:radial-gradient(circle at 50% 45%,black,transparent 72%);mask-image:radial-gradient(circle at 50% 45%,black,transparent 72%);opacity:.5}
-  .mana-wallpaper-orbit{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);
-    border:1px solid rgb(43 63 199 / 0.16);border-radius:9999px;box-shadow:0 0 80px rgb(192 64 232 / 0.08)}
-  .mana-wallpaper-orbit.o1{width:min(72vw,880px);height:min(34vw,410px);animation:drift-orbit 42s ease-in-out infinite}
-  .mana-wallpaper-orbit.o2{width:min(58vw,690px);height:min(27vw,320px);border-color:rgb(192 64 232 / 0.16);animation:drift-orbit 55s ease-in-out infinite reverse}
-  .mana-wallpaper-orbit.o3{width:min(44vw,520px);height:min(20vw,235px);border-color:rgb(43 63 199 / 0.11);animation:breathe-orbit 18s ease-in-out infinite}
-  @keyframes drift-orbit{0%,100%{transform:translate(-50%,-50%) rotate(-4deg) scale(1)}50%{transform:translate(-50%,-50%) rotate(4deg) scale(1.03)}}
-  @keyframes breathe-orbit{0%,100%{opacity:.56;transform:translate(-50%,-50%) scale(.96)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.05)}}
-  @media (prefers-reduced-motion:reduce){.mana-wallpaper-orbit{animation:none}}
+  /* Le wallpaper signature vit dans mana-wallpaper.css ; on ne définit ici
+     que ses variables (mode jour via :root, mode nuit ci-dessus). */
+  :root{--wp-bottom:var(--ecume);--wp-y:63%} /* cœur sous la déesse, derrière le titre */
   header,main,footer{position:relative;z-index:1}
   ::selection{background:#C0C8F8;color:#0B1220}
   a{color:inherit}
@@ -144,9 +128,15 @@
 <body>
 
 <div class="mana-wallpaper" aria-hidden="true">
-  <div class="mana-wallpaper-orbit o1"></div>
-  <div class="mana-wallpaper-orbit o2"></div>
-  <div class="mana-wallpaper-orbit o3"></div>
+  <div class="mana-wallpaper-orbit mana-wallpaper-orbit-one"></div>
+  <div class="mana-wallpaper-orbit mana-wallpaper-orbit-two"></div>
+  <div class="mana-wallpaper-orbit mana-wallpaper-orbit-three"></div>
+  <div class="mana-wallpaper-core">
+    <img src="Logo_MANA_Symbol_logo.png" alt="" class="mana-wallpaper-core-logo">
+  </div>
+  <div class="mana-world-line mana-world-line-one"></div>
+  <div class="mana-world-line mana-world-line-two"></div>
+  <div class="mana-world-line mana-world-line-three"></div>
 </div>
 
 <header>

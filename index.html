@@ -117,6 +117,7 @@
 
   /* Encarts (livre blanc / constitution) */
   .duo{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+  .duo.solo{grid-template-columns:1fr;max-width:540px}
   @media(max-width:700px){.duo{grid-template-columns:1fr}}
   .encart{background:var(--carte);border:1px solid var(--filet);border-radius:18px;padding:1.6rem}
   .encart h3{font-family:var(--serif);font-size:1.25rem;margin:0 0 .5rem}
@@ -124,6 +125,29 @@
   .btn{display:inline-block;padding:.7rem 1.5rem;border-radius:999px;background:linear-gradient(90deg,var(--bleu),var(--violet));color:#fff;font-weight:600;font-size:.9rem;text-decoration:none;box-shadow:0 6px 18px rgba(90,60,230,.22);transition:filter .2s,transform .2s}
   .btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
   .btn.ghost{background:none;color:var(--violet);border:1px solid var(--violet);box-shadow:none}
+
+  /* OBJET — les deux piliers : Constitution (pourquoi) & Applications (comment) */
+  .objet-duo{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2rem}
+  @media(max-width:820px){.objet-duo{grid-template-columns:1fr}}
+  .socle{position:relative;display:flex;flex-direction:column;background:var(--carte);border:1px solid var(--filet);border-radius:22px;padding:2rem;transition:border-color .25s,transform .25s,box-shadow .25s}
+  .socle:hover{border-color:var(--violet);transform:translateY(-3px);box-shadow:0 16px 40px rgba(90,60,230,.10)}
+  .socle-tag{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--sous)}
+  .socle h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,3vw,2.2rem);margin:.5rem 0 .3rem;color:var(--encre)}
+  .socle .quoi{font-family:var(--serif);font-style:italic;font-size:1.15rem;margin:0 0 1rem}
+  .socle p{font-size:.98rem;line-height:1.65;color:var(--texte);margin:0 0 1.3rem}
+  .socle .btn{align-self:flex-start;margin-top:auto}
+
+  /* Signataires vivants — chaque membre signe la Constitution à l'onboarding */
+  .signataires{display:flex;align-items:center;gap:.8rem;margin:.2rem 0 1.3rem;padding:.7rem .9rem;border:1px solid var(--filet);border-radius:14px;background:var(--ecume)}
+  .sig-piles{display:flex;flex:none}
+  .sig-piles span{width:26px;height:26px;border-radius:50%;border:2px solid var(--carte);margin-left:-8px;background:linear-gradient(135deg,var(--bleu),var(--violet));box-shadow:0 2px 6px rgba(90,60,230,.25)}
+  .sig-piles span:first-child{margin-left:0}
+  .sig-piles .more{background:var(--carte);color:var(--sous);font-size:.62rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .sig-txt{font-size:.82rem;line-height:1.4;color:var(--brume)}
+  .sig-txt b{color:var(--encre);font-size:.95rem}
+  .socle .puce{list-style:none;margin:0 0 1.3rem;padding:0;display:grid;gap:.55rem}
+  .socle .puce li{position:relative;padding-left:1.4rem;font-size:.92rem;color:var(--texte)}
+  .socle .puce li::before{content:"→";position:absolute;left:0;color:var(--violet);font-weight:700}
 
   /* Contact */
   .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:2rem;margin-top:1.5rem;align-items:start}
@@ -188,6 +212,44 @@
         <img class="deesse" src="deesse-mana.png" alt="Mana, le visage de l'univers">
       </picture>
       <span class="tw a"></span><span class="tw b"></span><span class="tw c"></span>
+    </div>
+  </section>
+
+  <!-- OBJET — les deux piliers -->
+  <section id="objet">
+    <span class="sur">L'objet de MANA Home</span>
+    <h2>Deux piliers, une même boussole.</h2>
+    <p class="lead">MANA Home tient sur deux fondations indissociables : un serment qui dit <em>pourquoi</em>, et des applications qui montrent <em>comment</em>.</p>
+    <div class="objet-duo">
+
+      <article class="socle">
+        <span class="socle-tag">Le pourquoi</span>
+        <h3 class="grad">La Constitution</h3>
+        <p class="quoi">Ce que nous refuserons toujours de faire.</p>
+        <p>Nos renoncements volontaires, gravés avant le code : ne jamais capter l'attention, marchander les personnes, ni rançonner la mémoire. C'est le socle commun qui relie tous les mondes de MANA.</p>
+        <div class="signataires">
+          <div class="sig-piles">
+            <span></span><span></span><span></span><span></span><span class="more">+</span>
+          </div>
+          <p class="sig-txt"><b>Rejoignez les signataires.</b><br>Chaque membre signe la Constitution à son arrivée — et rejoint le registre.</p>
+        </div>
+        <a class="btn" href="https://constitution.manahome.org">Lire &amp; signer la Constitution →</a>
+      </article>
+
+      <article class="socle">
+        <span class="socle-tag">Le comment</span>
+        <h3 class="grad">Les applications</h3>
+        <p class="quoi">Ce que nous construisons sous cette règle.</p>
+        <p>Cinq mondes vivants qui incarnent le serment, chacun avec son geste propre — transmettre, relier, orchestrer, protéger, reconnaître. La promesse rendue tangible.</p>
+        <ul class="puce">
+          <li><b>MANA Family</b> — transmettre en famille</li>
+          <li><b>MANA France</b> — relier les voisins</li>
+          <li><b>TempoSystem</b> — orchestrer le temps donné</li>
+          <li><b>Alliance MANA</b> · <b>TimeBank</b> — protéger &amp; reconnaître</li>
+        </ul>
+        <a class="btn ghost" href="#mondes">Découvrir les applications →</a>
+      </article>
+
     </div>
   </section>
 
@@ -279,16 +341,11 @@
   <section id="lecture">
     <span class="sur">Pour comprendre</span>
     <h2>Lire Mana en profondeur.</h2>
-    <div class="duo">
+    <div class="duo solo">
       <div class="encart">
         <h3 class="grad">Le Livre blanc</h3>
         <p>La vision complète : d'où vient Mana, ce qu'il propose, comment il compte tenir ses promesses. Le texte de référence du projet.</p>
         <a class="btn" href="livre-blanc.html">Lire le Livre blanc →</a>
-      </div>
-      <div class="encart">
-        <h3 class="grad">La Constitution numérique</h3>
-        <p>Nos renoncements volontaires — ce que nous refuserons toujours de faire : capter l'attention, marchander les personnes, rançonner la mémoire. Gravée avant le code.</p>
-        <a class="btn ghost" href="https://constitution.manahome.org">Lire la Constitution →</a>
       </div>
     </div>
   </section>

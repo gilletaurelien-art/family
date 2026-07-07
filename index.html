@@ -55,7 +55,7 @@
   .sur::before{content:"";display:inline-block;width:40px;height:1px;background:var(--bleu);flex:none}
   .hero .sur{justify-content:flex-start}
   @media(max-width:820px){.hero .sur{justify-content:center}}
-  h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.25rem,5vw,3.75rem);line-height:1.15;margin:0 0 1.2rem;color:var(--encre)}
+  h2,#objet h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.25rem,5vw,3.75rem);line-height:1.15;margin:0 0 1.2rem;color:var(--encre)}
   p{color:var(--texte);font-size:1.125rem;line-height:1.625}
   .lead{max-width:52ch;font-size:clamp(1.125rem,2vw,1.25rem)}
 
@@ -203,16 +203,41 @@
 </header>
 
 <main>
-  <!-- HERO — la déesse, l'assistance -->
-  <section class="hero">
-    <div>
-      <span class="sur">Le Monde de MANA</span>
-      <h1>
-        <span class="h1-mana grad">Mana</span>
-        <span class="h1-univers">Home</span>
-      </h1>
-      <p class="guide">Salutations, je suis <strong>Mana</strong>.<br>J'existe pour <span class="grad">valoriser les personnes aidantes</span>, durablement et veiller à transmettre leurs messages.</p>
-      <p class="bienvenue">Bien à vous,</p>
+  <!-- OBJET — les deux piliers -->
+  <section id="objet">
+    <span class="sur">L'objet de MANA Home</span>
+    <h1>Réunir les applications de MANA sous une même Constitution.</h1>
+    <p class="lead"><strong>MANA Home est l'Alliance MANA</strong>, la maison mère de l'univers Mana. Tout y tient en deux piliers : une Constitution qui dit <em>pourquoi nous existons</em>, des applications qui montrent <em>comment nous le vivons</em>.</p>
+    <div class="objet-duo">
+
+      <article class="socle">
+        <span class="socle-tag">Le pourquoi</span>
+        <h3 class="grad">La Constitution</h3>
+        <p class="quoi">Protéger votre attention, votre dignité, votre mémoire.</p>
+        <p>«&nbsp;Nous, personnes du numérique&nbsp;»&nbsp;: nos droits, gravés avant la première ligne de code. Une attention qui ne se capte pas, des personnes qui ne se marchandent pas, une mémoire qui ne se rançonne pas. Le socle commun de tous les mondes de MANA.</p>
+        <div class="signataires">
+          <div class="sig-piles">
+            <span></span><span></span><span></span><span></span><span class="more">+</span>
+          </div>
+          <p class="sig-txt"><b>Rejoignez les signataires.</b><br>En arrivant, chaque membre signe la Constitution — et rejoint ce «&nbsp;nous&nbsp;».</p>
+        </div>
+        <a class="btn" href="https://constitution.manahome.org">Lire &amp; signer la Constitution →</a>
+      </article>
+
+      <article class="socle">
+        <span class="socle-tag">Le comment</span>
+        <h3 class="grad">Les applications</h3>
+        <p class="quoi">Ce que nous bâtissons sous cette règle.</p>
+        <p>Cinq mondes vivants incarnent la Constitution, chacun par un geste — transmettre, relier, orchestrer, protéger, reconnaître. La promesse rendue tangible, jour après jour.</p>
+        <ul class="puce">
+          <li><b>MANA Family</b> — transmettre en famille</li>
+          <li><b>MANA France</b> — relier les voisins</li>
+          <li><b>TempoSystem</b> — orchestrer le temps donné</li>
+          <li><b>Alliance MANA</b> · <b>TimeBank</b> — protéger &amp; reconnaître</li>
+        </ul>
+        <a class="btn ghost" href="#mondes">Découvrir les applications →</a>
+      </article>
+
     </div>
   </section>
 

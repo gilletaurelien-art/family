@@ -76,6 +76,23 @@
   .monde-plus{display:inline-block;margin:.55rem 0 0 .3rem;font-size:.85rem;color:var(--violet);text-decoration:none;border-bottom:1px dotted var(--filet)}
   .monde-plus:hover{border-color:var(--violet)}
 
+  /* Schéma écosystème */
+  .schema{margin-top:2rem;text-align:center}
+  .schema-racine{display:inline-block;font-family:var(--serif);font-weight:700;font-size:1.25rem;letter-spacing:.1em;
+    padding:.8rem 2.2rem;border-radius:999px;background:linear-gradient(90deg,var(--bleu),var(--violet));color:#fff;
+    box-shadow:0 8px 24px rgba(90,60,230,.25)}
+  .schema-fleche{font-size:1.4rem;color:var(--violet);opacity:.6;margin:.6rem 0}
+  .schema-cadre{border:1px dashed rgba(58,43,227,.3);border-radius:20px;padding:1.6rem 1.2rem 1.2rem;position:relative;background:rgba(58,43,227,.02)}
+  .schema-cadre-titre{position:absolute;top:-0.8rem;left:50%;transform:translateX(-50%);background:var(--ecume);
+    padding:0 .9rem;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--violet);white-space:nowrap}
+  .schema-grille{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:.8rem}
+  .schema-carte{display:block;text-decoration:none;background:#fff;border:1px solid var(--filet);border-radius:14px;
+    padding:1rem .9rem;transition:border-color .25s,transform .25s}
+  .schema-carte:hover{border-color:var(--violet);transform:translateY(-2px)}
+  .schema-emoji{display:block;font-size:1.5rem;margin-bottom:.35rem}
+  .schema-nom{display:block;font-family:var(--serif);font-weight:700;font-size:.98rem;color:var(--encre)}
+  .schema-role{display:block;font-size:.8rem;color:var(--brume);margin-top:.2rem}
+
   /* Encarts (livre blanc / constitution) */
   .duo{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
   @media(max-width:700px){.duo{grid-template-columns:1fr}}
@@ -173,6 +190,46 @@
         <span class="monde-tete"><span class="monde-nom">MANA TimeBank</span><span class="monde-verbe grad">Reconnaître.</span><span class="monde-etat">Ouvert →</span></span>
         <p>Rendre visible et honorer le temps partagé. La banque de temps où chaque heure offerte est reconnue — un registre de la gratitude qui circule, d'une personne à l'autre, d'une génération à la suivante.</p>
       </a>
+    </div>
+  </section>
+
+  <!-- SCHÉMA — l'écosystème d'un coup d'œil -->
+  <section id="ecosysteme">
+    <span class="sur">La carte</span>
+    <h2>L'écosystème, d'un coup d'œil.</h2>
+    <div class="schema">
+      <span class="schema-racine">MANAHOME</span>
+      <div class="schema-fleche">▼</div>
+      <div class="schema-cadre">
+        <span class="schema-cadre-titre">Écosystème Temposystem</span>
+        <div class="schema-grille">
+          <a class="schema-carte" href="https://temposystem.eu">
+            <span class="schema-emoji">☀️</span>
+            <span class="schema-nom">TEMPOSYSTEM.eu</span>
+            <span class="schema-role">Le cœur</span>
+          </a>
+          <a class="schema-carte" href="https://temposystem.fr">
+            <span class="schema-emoji">🧠</span>
+            <span class="schema-nom">TEMPOSYSTEM.fr</span>
+            <span class="schema-role">L'orchestre</span>
+          </a>
+          <a class="schema-carte" href="https://manatimebank.org">
+            <span class="schema-emoji">🌍</span>
+            <span class="schema-nom">ManaTimeBank.org</span>
+            <span class="schema-role">Le concept international</span>
+          </a>
+          <a class="schema-carte" href="https://mana.bzh">
+            <span class="schema-emoji">🧪</span>
+            <span class="schema-nom">Mana.bzh</span>
+            <span class="schema-role">Le laboratoire breton</span>
+          </a>
+          <a class="schema-carte" href="https://alliancemana.org">
+            <span class="schema-emoji">🏛</span>
+            <span class="schema-nom">AllianceMANA.org</span>
+            <span class="schema-role">Gouvernance &amp; principes</span>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 

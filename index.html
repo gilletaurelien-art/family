@@ -36,13 +36,13 @@
   a{color:inherit}
   .grad{background:linear-gradient(110deg,var(--bleu) 0%,var(--degrade-mi) 50%,var(--violet) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 
-  header{position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);background:var(--header-bg);border-bottom:1px solid var(--filet)}
+  header{position:fixed;top:0;left:0;right:0;z-index:20;backdrop-filter:blur(10px);background:var(--header-bg);border-bottom:1px solid var(--filet)}
+  body{padding-top:60px} /* compense la barre fixe (hauteur du nav) */
   .nav{max-width:1080px;margin:0 auto;padding:0 1.4rem;height:60px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
   .mark{display:flex;align-items:center;gap:.8rem;text-decoration:none}
   .mark img{height:28px;width:28px;object-fit:contain}
   .mark-lines{display:flex;flex-direction:column;line-height:1.15}
   .mark-name{font-size:13px;letter-spacing:.18em;font-weight:700;text-transform:uppercase;color:var(--encre)}
-  .mark-sub{font-size:9px;letter-spacing:.2em;font-weight:600;text-transform:uppercase;color:var(--sous)}
   .nav ul{list-style:none;display:flex;gap:1.75rem;margin:0;padding:0;font-size:13px;letter-spacing:.025em}
   .nav a{text-decoration:none;color:var(--brume);transition:color .15s}
   .nav a:hover{color:var(--encre)}
@@ -54,7 +54,7 @@
     background:linear-gradient(90deg,var(--bleu),var(--violet));color:#fff !important;box-shadow:0 4px 14px rgba(90,60,230,.22);transition:filter .2s,transform .2s}
   .nav-btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
   .nav-btn.ghost{background:none;color:var(--violet) !important;border:1px solid var(--violet);box-shadow:none}
-  @media(max-width:480px){.nav-btn{padding:.4rem .75rem;font-size:11.5px}.mark-sub{display:none}}
+  @media(max-width:480px){.nav-btn{padding:.4rem .75rem;font-size:11.5px}}
 
   /* HERO NUIT — la déesse en pleine lumière sur la nuit (décor fixe, pas un mode) */
   .hero-nuit{position:relative;z-index:1;overflow:hidden;min-height:min(88vh,720px);
@@ -190,6 +190,10 @@
   .socle{position:relative;display:flex;flex-direction:column;background:var(--carte);border:1px solid var(--filet);border-radius:22px;padding:2rem;transition:border-color .25s,transform .25s,box-shadow .25s}
   .socle:hover{border-color:var(--violet);transform:translateY(-3px);box-shadow:0 16px 40px rgba(90,60,230,.10)}
   .socle-tag{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--sous)}
+  /* La couche partenaire (TempoSystem, Alliance, TimeBank) — distincte du récit citoyen */
+  .part-pro{font-size:.85rem;color:var(--brume);border-top:1px dashed var(--filet);padding-top:.9rem;margin-top:.4rem}
+  .part-pro a{color:var(--violet);text-decoration:none;font-weight:600}
+  .part-pro a:hover{text-decoration:underline}
   .socle h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,3vw,2.2rem);margin:.5rem 0 .3rem;color:var(--encre)}
   .socle .quoi{font-family:var(--serif);font-style:italic;font-size:1.15rem;margin:0 0 1rem}
   .socle p{font-size:.98rem;line-height:1.65;color:var(--texte);margin:0 0 1.3rem}
@@ -242,7 +246,6 @@
       <img src="Logo_MANA_Symbol_logo.png" alt="MANA">
       <span class="mark-lines">
         <span class="mark-name">MANA Home</span>
-        <span class="mark-sub">Alliance MANA</span>
       </span>
     </a>
     <ul>
@@ -279,8 +282,8 @@
   <!-- OBJET — les deux piliers -->
   <section id="objet">
     <span class="sur">L'objet de MANA Home</span>
-    <h1>Réunir les applications de MANA sous une même Constitution.</h1>
-    <p class="lead">D'un côté, <strong>la Constitution</strong> : le texte fondateur qui garantit les droits numériques de la personne — attention, dignité, mémoire — et que chaque membre signe à son arrivée. De l'autre, <strong>les applications</strong> : les mondes vivants qui mettent ces droits en pratique, de la famille au territoire. <strong>MANA Home — l'Alliance MANA —</strong> est la maison mère qui veille à ce que les unes ne s'écartent jamais de l'autre.</p>
+    <h1>Une seule application, sous une même Constitution.</h1>
+    <p class="lead">D'un côté, <strong>la Constitution</strong> : le texte fondateur qui garantit les droits numériques de la personne — attention, dignité, mémoire — et que chaque membre signe à son arrivée. De l'autre, <strong>l'application MANA</strong> : une seule maison pour prendre soin, des proches comme du territoire — un seul compte, deux espaces. <strong>MANA Home — l'Alliance MANA —</strong> est la maison mère qui veille à ce que l'une ne s'écarte jamais de l'autre.</p>
     <div class="objet-duo">
 
       <article class="socle">
@@ -299,16 +302,15 @@
 
       <article class="socle">
         <span class="socle-tag">Le comment</span>
-        <h3 class="grad">Les applications</h3>
+        <h3 class="grad">L'application MANA</h3>
         <p class="quoi">Ce que nous bâtissons sous cette règle.</p>
-        <p>Cinq mondes vivants incarnent la Constitution, chacun par un geste — transmettre, relier, orchestrer, protéger, reconnaître. La promesse rendue tangible, jour après jour.</p>
+        <p>MANA incarne la Constitution, geste après geste — transmettre, relier, reconnaître. Un seul compte, une seule maison, deux espaces&nbsp;:</p>
         <ul class="puce">
-          <li><b>MANA Family</b> — transmettre en famille</li>
-          <li><b>MANA France</b> — relier les voisins</li>
-          <li><b>TempoSystem</b> — orchestrer le temps donné</li>
-          <li><b>Alliance MANA</b> · <b>TimeBank</b> — protéger &amp; reconnaître</li>
+          <li><b>Les Proches</b> — la famille&nbsp;: transmettre, veiller, garder la mémoire vivante</li>
+          <li><b>Le Territoire</b> — les voisins&nbsp;: s'entraider, reconnaître le temps donné</li>
         </ul>
-        <a class="btn ghost" href="#mondes">Découvrir les applications →</a>
+        <p class="part-pro">Pour les partenaires — associations, communes, institutions&nbsp;: <b>TempoSystem</b> orchestre le temps donné en coulisse&nbsp;; <b>Alliance MANA</b> et <b>TimeBank</b> protègent &amp; reconnaissent. <a href="https://pro.manafrance.org">Espace partenaires →</a></p>
+        <a class="btn ghost" href="https://mana.bzh">Entrer dans l'application →</a>
       </article>
 
     </div>

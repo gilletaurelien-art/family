@@ -40,6 +40,19 @@
   /* Le wallpaper signature vit dans mana-wallpaper.css ; on ne définit ici
      que ses variables (mode jour via :root, mode nuit ci-dessus). */
   :root{--wp-bottom:var(--ecume);--wp-y:63%} /* cœur sous la déesse, derrière le titre */
+
+  /* Harmonisation : le cœur central se fond dans le fond (même couleur que
+     le background) au lieu du disque blanc éclatant. Un souffle très doux
+     garde le logo présent sans qu'il brille. */
+  .mana-wallpaper-core{
+    border-color:rgb(192 64 232 / .12);
+    background:
+      radial-gradient(circle, rgb(192 64 232 / .10) 0 42%, rgb(43 63 199 / .06) 62%, transparent 74%),
+      var(--ecume);
+    box-shadow:0 0 60px rgb(43 63 199 / .08), 0 0 120px rgb(192 64 232 / .06);
+  }
+  .mana-wallpaper-core-logo{opacity:.34}
+
   header,main,footer{position:relative;z-index:1}
   ::selection{background:#C0C8F8;color:#0B1220}
   a{color:inherit}

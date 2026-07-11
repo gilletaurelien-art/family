@@ -1,0 +1,5 @@
+# https://manahome.org
+User-agent: *
+Allow: /
+
+Sitemap: https://manahome.org/sitemap.xml

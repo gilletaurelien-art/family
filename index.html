@@ -145,7 +145,7 @@
     padding:1rem 1.8rem 1.6rem;background:var(--sable);
     border:1.5px solid var(--terre);border-radius:26px;
     box-shadow:0 20px 50px rgba(20,45,70,.22)}
-  section{padding:3.4rem 0;border-top:1px solid var(--filet)}
+  section{padding:4.7rem 0;border-top:1px solid var(--filet)}
   section:first-of-type{border-top:none}
   .sur{display:flex;align-items:center;gap:1rem;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--sous);margin-bottom:1.2rem}
   .sur::before{content:"";display:inline-block;width:40px;height:1px;background:var(--bleu);flex:none}
@@ -339,7 +339,7 @@
 <!-- HERO NATURE — prendre soin, ensemble, dehors -->
 <section class="hero-nature" aria-label="MANA — prendre soin, ensemble">
   <div class="hero-frame">
-    <img src="hero-ensemble.jpg" alt="MANA — Le temps de l'entraide devient notre richesse commune : donner, recevoir, transmettre. Un quartier au grand air, au bord de la mer, où l'on prend soin les uns des autres.">
+    <img class="zoomable" src="hero-ensemble.jpg" alt="MANA — Le temps de l'entraide devient notre richesse commune : donner, recevoir, transmettre. Un quartier au grand air, au bord de la mer, où l'on prend soin les uns des autres.">
   </div>
   <h1 class="hero-title">Prendre soin,<br><span class="brille">ensemble.</span></h1>
   <p class="lead">Rendre le soin visible, durable et transmissible — pour les proches comme pour le territoire, sous une même Constitution.</p>
@@ -390,7 +390,7 @@
     <h2 class="grammaire-titre">La grammaire du soin.</h2>
     <p class="lead">Partout où l'on prend soin les uns des autres, trois forces sont à l'œuvre — la <strong>Présence</strong>, la <strong>Mémoire</strong>, le <strong>Lien</strong>. L'application MANA les porte dans ses deux espaces, les Proches et le Territoire, chacun à sa manière.</p>
     <figure class="grammaire-fig">
-      <img src="grammaire-du-soin.jpg" alt="Les trois forces du soin, en cercles : la Présence (ce qui fait vivre — le geste porté à l'autre, ici et maintenant), la Mémoire (ce qui fait durer — ce que l'on transmet et qui ne s'efface pas), le Lien (ce qui relie — la gravité discrète qui tient l'ensemble), entre Les Proches et Le Territoire.">
+      <img class="zoomable" src="grammaire-du-soin.jpg" alt="Les trois forces du soin, en cercles : la Présence (ce qui fait vivre — le geste porté à l'autre, ici et maintenant), la Mémoire (ce qui fait durer — ce que l'on transmet et qui ne s'efface pas), le Lien (ce qui relie — la gravité discrète qui tient l'ensemble), entre Les Proches et Le Territoire.">
       <figcaption>La Présence fait vivre. La Mémoire fait durer. Le Lien fait tenir. Ensemble, elles nourrissent notre monde.</figcaption>
     </figure>
   </section>
@@ -400,7 +400,7 @@
     <span class="sur">La carte</span>
     <h2>L'écosystème, d'un coup d'œil.</h2>
     <figure class="grammaire-fig">
-      <img src="ecosysteme-carte.jpg" alt="L'écosystème MANA d'un coup d'œil : au centre MANAhome.org (l'assistance), à gauche Les Proches (l'espace famille), à droite Le Territoire (l'espace citoyen) ; en bas les partenaires MANAfrance (ancrage territorial), TEMPOsystem (l'orchestre du temps), allianceMANA (gouvernance & principes) et MANAtimebank (reconnaissance du temps donné).">
+      <img class="zoomable" src="ecosysteme-carte.jpg" alt="L'écosystème MANA d'un coup d'œil : au centre MANAhome.org (l'assistance), à gauche Les Proches (l'espace famille), à droite Le Territoire (l'espace citoyen) ; en bas les partenaires MANAfrance (ancrage territorial), TEMPOsystem (l'orchestre du temps), allianceMANA (gouvernance & principes) et MANAtimebank (reconnaissance du temps donné).">
       <figcaption>Un même élan : prendre soin les uns des autres, aujourd'hui et pour demain.</figcaption>
     </figure>
   </section>
@@ -425,9 +425,9 @@
       <div>
         <a class="monde" href="https://mana.bzh/proches">
           <span class="monde-tete"><span class="monde-nom">Les Proches</span><span class="monde-verbe grad">Transmettre.</span><span class="monde-etat">Entrer →</span></span>
-          <p>L'espace famille de MANA — les cercles familiaux vivants. On y dépose des souvenirs, on veille les uns sur les autres, on garde la mémoire de la famille vivante — sans flux, sans compteurs, sans injonction. Une lueur douce dit qui a pris soin ; jamais qui ne l'a pas fait.</p>
+          <p>L'espace famille de MANA — les cercles familiaux vivants. On y dépose des souvenirs, on veille les uns sur les autres, on garde la mémoire de la famille vivante — sans flux, sans compteurs, sans injonction. Une lueur douce dit qui a pris soin ; jamais qui ne l'a pas fait. Et pour les plus jeunes, <strong>MANAkids</strong> — un espace tout-doux, à hauteur d'enfant, pour grandir dans le soin.</p>
         </a>
-        <a class="monde-plus" href="mana-family.html">En savoir plus sur les Proches (MANA Family) →</a>
+        <a class="monde-plus" href="mana-family.html">En savoir plus sur les Proches (MANA Family &amp; MANAkids) →</a>
       </div>
       <div>
         <a class="monde" href="https://mana.bzh">
@@ -455,13 +455,36 @@
       </a>
     </div>
   </section>
+  <!-- TERRE DE MANA — le territoire : national (MANAfrance) + régional (mana.bzh) -->
+  <section id="terre">
+    <span class="sur">Le territoire</span>
+    <h2>La Terre de MANA.</h2>
+    <p class="lead">MANA prend racine quelque part — sur une côte, dans un bassin de vie, autour d'une <strong>Maison Mana</strong>. « Prendre soin les uns des autres » y devient concret : un lieu, des voisins, des gestes. Deux échelles, un même rivage.</p>
+    <figure class="grammaire-fig">
+      <img class="zoomable" src="manasail.jpg" alt="Une famille sur un voilier MANA vogue vers la Terre de MANA : une côte accueillante avec un phare, un village et la Maison Mana, des dauphins dans les vagues, au soleil couchant.">
+      <figcaption>Voguer vers la Terre de MANA — le temps partagé, le soin au cœur, la transmission qui relie.</figcaption>
+    </figure>
+    <div class="duo">
+      <div class="encart">
+        <h3 class="grad">MANA France — le cadre national</h3>
+        <p>Le mouvement qui porte la Terre de MANA partout en France : l'association, le cadre qui protège la démarche, les communes et partenaires qui l'accueillent. La vue d'ensemble du pays.</p>
+        <a class="btn" href="https://manafrance.org">Découvrir MANA France →</a>
+      </div>
+      <div class="encart">
+        <h3 class="grad">Mana Bretagne — la première terre</h3>
+        <p>La Terre de MANA incarnée sur un territoire réel, à taille humaine : la Bretagne. C'est ici que l'entraide se vit pour de bon, voisin après voisin — la première région à ouvrir sa Maison Mana.</p>
+        <a class="btn ghost" href="https://mana.bzh">Entrer sur mana.bzh →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- COMMENCER ICI — la carte de lecture (Guide + Livres blancs), illustrée -->
   <section id="lecture-carte">
     <span class="sur">Pour comprendre</span>
     <h2>Commencer ici.</h2>
     <p class="lead">Une invitation de quinze minutes pour comprendre tout l'écosystème — le temps partagé, le soin, la transmission. Sans jargon, sans technique. La porte d'entrée, avant les livres blancs.</p>
     <figure class="grammaire-fig">
-      <img src="lecture-panorama.jpg" alt="Le Guide fondateur (le temps partagé, le soin, la transmission) et les Livres blancs — Mana Family et Mana · France — posés dans un paysage, la porte d'entrée avant les textes de référence.">
+      <img class="zoomable" src="lecture-panorama.jpg" alt="Le Guide fondateur (le temps partagé, le soin, la transmission) et les Livres blancs — Mana Family et Mana · France — posés dans un paysage, la porte d'entrée avant les textes de référence.">
       <figcaption>Le temps partagé · Le soin au cœur · La transmission qui relie.</figcaption>
     </figure>
   </section>
@@ -569,6 +592,55 @@
       });
     });
   })();
+</script>
+
+<!-- ============ Lightbox — images cliquables & zoomables (bonne lecture) ============ -->
+<style>
+  img.zoomable{cursor:zoom-in;transition:transform .3s ease, box-shadow .3s ease}
+  .grammaire-fig img.zoomable:hover{transform:translateY(-4px);box-shadow:0 28px 60px rgba(20,45,70,.30)}
+  .hero-frame:hover{transform:translateY(-4px)}
+  .hero-frame{transition:transform .3s ease}
+  #lb{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;
+    background:rgba(18,38,52,.94);backdrop-filter:blur(5px);padding:2vmin;overflow:auto;overscroll-behavior:contain}
+  #lb.open{display:flex}
+  #lb img{max-width:96vw;max-height:92vh;width:auto;height:auto;border-radius:12px;
+    box-shadow:0 24px 70px rgba(0,0,0,.55);border:2px solid rgba(228,197,131,.55);cursor:zoom-in;
+    transition:max-width .25s ease, max-height .25s ease}
+  #lb.zoom{align-items:flex-start;justify-content:flex-start}
+  #lb.zoom img{max-width:none;max-height:none;cursor:zoom-out}
+  #lb-close{position:fixed;top:14px;right:18px;z-index:81;background:rgba(0,0,0,.4);color:#fff;border:0;
+    width:44px;height:44px;border-radius:50%;font-size:26px;line-height:1;cursor:pointer;
+    display:flex;align-items:center;justify-content:center}
+  #lb-close:hover{background:rgba(0,0,0,.6)}
+  #lb-hint{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:81;
+    color:rgba(255,255,255,.85);font-family:var(--serif);font-size:12.5px;letter-spacing:.03em;
+    background:rgba(0,0,0,.35);padding:.4rem .9rem;border-radius:999px;pointer-events:none;white-space:nowrap}
+  @media(max-width:520px){#lb-hint{font-size:11px}}
+</style>
+<div id="lb" role="dialog" aria-label="Illustration en grand" aria-modal="true">
+  <button id="lb-close" aria-label="Fermer">&times;</button>
+  <img id="lb-img" src="" alt="">
+  <span id="lb-hint">Touchez l'image pour zoomer · Échap ou clic autour pour fermer</span>
+</div>
+<script>
+(function(){
+  var lb=document.getElementById('lb'), img=document.getElementById('lb-img'),
+      closeBtn=document.getElementById('lb-close');
+  function open(src,alt){ img.src=src; img.alt=alt||''; lb.classList.remove('zoom'); lb.classList.add('open');
+    document.body.style.overflow='hidden'; }
+  function shut(){ lb.classList.remove('open','zoom'); img.src=''; document.body.style.overflow=''; }
+  document.querySelectorAll('img.zoomable').forEach(function(el){
+    el.addEventListener('click', function(){ open(el.currentSrc||el.src, el.alt); });
+  });
+  img.addEventListener('click', function(e){
+    e.stopPropagation();
+    lb.classList.toggle('zoom');
+    if(lb.classList.contains('zoom')){ lb.scrollLeft=Math.max(0,(img.clientWidth-lb.clientWidth)/2); lb.scrollTop=0; }
+  });
+  closeBtn.addEventListener('click', shut);
+  lb.addEventListener('click', function(e){ if(e.target===lb) shut(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') shut(); });
+})();
 </script>
 
 <!-- ============ Chatbot Mana — la Déesse (or) ============ -->

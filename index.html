@@ -370,7 +370,11 @@
     <h2>La Terre de MANA.</h2>
     <p class="terre-txt">Imaginez un territoire où l'entraide redevient naturelle. Des voisins. Des familles. Une Maison MANA. Une côte. Un phare. Un même horizon.</p>
     <div class="terre-frame">
-      <img class="zoomable" src="manasail.jpg" alt="Une famille sur un voilier MANA vogue vers la Terre de MANA : une côte accueillante avec un phare, un village et la Maison Mana, au soleil couchant.">
+      <picture>
+        <!-- Mobile : version portrait ; desktop : version paysage -->
+        <source media="(max-width:640px)" srcset="voilier-pwa.jpg">
+        <img class="zoomable" src="manasail.jpg" alt="Une famille sur un voilier MANA vogue vers la Terre de MANA : une côte accueillante avec un phare, un village et la Maison Mana, au soleil couchant.">
+      </picture>
     </div>
     <a class="btn" href="https://manafrance.org">Découvrir la Terre de MANA</a>
   </div>

@@ -280,7 +280,11 @@
 <section class="hero" aria-label="MANA — prendre soin, ensemble">
   <div class="wrap">
     <div class="hero-frame">
-      <img class="zoomable" src="manamaison.jpg" alt="Une maison, deux espaces : Les Proches — veiller et transmettre — et Le Territoire — s'entraider — autour de la Maison MANA.">
+      <picture>
+        <!-- Mobile : version portrait ; desktop : version paysage -->
+        <source media="(max-width:640px)" srcset="maison-mana-pwa.jpg">
+        <img class="zoomable" src="manamaison.jpg" alt="Une maison, deux espaces : Les Proches — veiller et transmettre — et Le Territoire — s'entraider — autour de la Maison MANA.">
+      </picture>
     </div>
     <h1>Prendre soin,<br>ensemble.</h1>
     <p class="sub">Une seule application pour veiller sur ses proches, s'entraider et transmettre ce qui compte vraiment.</p>

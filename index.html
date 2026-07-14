@@ -58,35 +58,46 @@
     /* PALETTE NATURE — vert, sable, terre, eau de rivière, eau de mer.
        On garde les anciens noms de tokens (--bleu/--violet…) mais on leur donne
        des valeurs naturelles : tout le site (gradients, boutons, filets) suit. */
-    --mer:#1E6E82;        /* eau de mer — bleu-vert profond */
-    --riviere:#2FA98C;    /* eau de rivière — turquoise clair */
-    --mousse:#3E9E6E;     /* vert mousse / feuille */
-    --sable:#E7D6B0;      /* sable */
-    --terre:#9A6A44;      /* terre / écorce */
+    --mer:#78A6C9;        /* eau de mer — le bleu de la carte (fond) */
+    --mer-profond:#5E8FBA;/* creux de la vague */
+    --riviere:#2FA98C;    /* eau de rivière — turquoise (accents/boutons) */
+    --mousse:#3E9E6E;     /* vert mousse / feuille (accents/boutons) */
+    --sable:#E4D2A8;      /* sable — feuille de fond des encadrés */
+    --terre:#9A6A44;      /* terre / écorce — pourtour des encadrés */
+    --kaki:#6C7A39;       /* vert kaki — les titres */
     --soleil:#E8A44C;     /* soleil — accent chaud */
     --corail:#E27A5F;     /* corail — accent secondaire */
-    /* Alias vers l'ancien système de noms → dégradé mer → rivière → mousse */
-    --bleu:var(--mer); --violet:var(--mousse); --degrade-mi:var(--riviere);
-    --ecume:#FAF6EA; --carte:#FFFFFF;
-    --encre:#1B3A2E; --texte:#3C4A40; --brume:#6E7B70; --filet:#E7E1D0;
-    --sous:#216B54;
-    --header-bg:rgba(250,246,234,.9);
+    /* Alias vers l'ancien système de noms */
+    --bleu:var(--riviere); --violet:var(--mousse); --degrade-mi:var(--riviere);
+    --ecume:#EFE6CD; --carte:#F4EBD2;   /* carte = sable pâle (encadrés intérieurs) */
+    --encre:#4A3320; --texte:#5A3E28; --brume:#7C6B52; --filet:#A5764C;
+    --sous:var(--kaki);
+    --header-bg:rgba(241,232,205,.9);
     --wp-a:rgb(46 125 91 / 0.07); --wp-b:rgb(154 106 68 / 0.05);
     --wp-top:#FDFBF4; --wp-grid:rgb(27 58 46 / 0.03);
     --serif:'Philosopher', 'Iowan Old Style', Georgia, serif;
     --sans:'Philosopher', 'Iowan Old Style', Georgia, serif;
   }
   *{box-sizing:border-box} html{scroll-behavior:smooth}
-  body{margin:0;font-family:var(--sans);color:var(--encre);line-height:1.7;
-    background:var(--ecume);min-height:100vh}
+  body{margin:0;font-family:var(--sans);color:var(--texte);line-height:1.7;
+    background:var(--mer);min-height:100vh}
 
-  /* Le wallpaper signature vit dans mana-wallpaper.css ; on ne définit ici
-     que ses variables (mode jour via :root — le mode nuit est désactivé). */
-  :root{--wp-bottom:var(--ecume)}
+  /* FOND = LA MER DE LA CARTE — bleu #78A6C9 + vagues blanches qui défilent
+     (même motif que mapWaves.ts). On neutralise le wallpaper cosmique. */
+  :root{--wp-bottom:var(--mer)}
+  .mana-wallpaper{background:linear-gradient(180deg,#8FB9D9 0%, var(--mer) 42%, var(--mer-profond) 100%) !important}
+  .mana-wallpaper-orbit,.mana-wallpaper-core,.mana-world-line{display:none !important}
+  .mana-wallpaper::after{
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60' viewBox='0 0 120 60'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1.3' stroke-linecap='round' opacity='0.45'%3E%3Cpath d='M0 12 Q15 6 30 12 T60 12 T90 12 T120 12'/%3E%3Cpath d='M0 30 Q15 36 30 30 T60 30 T90 30 T120 30'/%3E%3Cpath d='M0 48 Q15 42 30 48 T60 48 T90 48 T120 48'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-size:200px 100px !important;background-repeat:repeat !important;
+    -webkit-mask-image:none !important;mask-image:none !important;opacity:.55 !important;
+    animation:waveDrift 16s linear infinite}
+  @keyframes waveDrift{from{background-position:0 0}to{background-position:200px 0}}
+  @media(prefers-reduced-motion:reduce){.mana-wallpaper::after{animation:none}}
   header,main,footer{position:relative;z-index:1}
   ::selection{background:#BFE3D0;color:#1B3A2E}
   a{color:inherit}
-  .grad{background:linear-gradient(110deg,var(--bleu) 0%,var(--degrade-mi) 50%,var(--violet) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .grad{color:var(--kaki)} /* titres en vert kaki (ex-dégradé) */
 
   header{position:fixed;top:0;left:0;right:0;z-index:20;backdrop-filter:blur(10px);background:var(--header-bg);border-bottom:1px solid var(--filet)}
   body{padding-top:60px} /* compense la barre fixe (hauteur du nav) */
@@ -108,33 +119,39 @@
   .nav-btn.ghost{background:none;color:var(--violet) !important;border:1px solid var(--violet);box-shadow:none}
   @media(max-width:480px){.nav-btn{padding:.4rem .75rem;font-size:11.5px}}
 
-  /* HERO NATURE — prendre soin, ensemble, dehors. L'illustration au cœur. */
-  .hero-nature{position:relative;z-index:1;text-align:center;padding:2.4rem 1.4rem 2.5rem;
-    background:radial-gradient(120% 85% at 50% 0%, #FCF8EC 0%, var(--ecume) 62%)}
+  /* HERO — feuille de sable posée sur la mer. L'illustration au cœur. */
+  .hero-nature{position:relative;z-index:1;text-align:center;
+    width:calc(100% - 4rem);max-width:1000px;margin:1.8rem auto 1.4rem;
+    padding:2.4rem 1.6rem 2.6rem;background:var(--sable);
+    border:1.5px solid var(--terre);border-radius:26px;
+    box-shadow:0 20px 50px rgba(20,45,70,.22)}
   .hero-nature .hero-title{font-family:var(--serif);font-weight:700;font-size:clamp(2.4rem,6vw,4rem);
-    line-height:1.03;letter-spacing:-.015em;color:var(--encre);margin:1.6rem 0 .9rem}
-  .hero-nature .brille{background:linear-gradient(110deg,var(--mer),var(--riviere) 55%,var(--mousse));
-    -webkit-background-clip:text;background-clip:text;color:transparent}
+    line-height:1.03;letter-spacing:-.015em;color:var(--kaki);margin:1.6rem 0 .9rem}
+  .hero-nature .brille{color:var(--kaki)}
   .hero-nature .lead{margin:0 auto 1.7rem;max-width:46ch;color:var(--texte)}
   .hero-cta{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
-  /* Le cadre de l'illustration — comme une fenêtre ouverte sur le dehors */
-  .hero-frame{position:relative;max-width:1040px;margin:0 auto;border-radius:28px;overflow:hidden;
-    border:1px solid rgba(46,125,91,.14);
-    box-shadow:0 34px 80px rgba(27,58,46,.20), 0 6px 16px rgba(27,58,46,.08)}
+  /* Le cadre de l'illustration — une fenêtre ouverte sur le dehors */
+  .hero-frame{position:relative;max-width:1000px;margin:0 auto;border-radius:22px;overflow:hidden;
+    border:1.5px solid var(--terre);
+    box-shadow:0 20px 46px rgba(20,45,70,.22)}
   .hero-frame img{display:block;width:100%;height:auto}
-  /* Le bas de l'illustration se fond doucement dans la crème de la page */
-  .hero-frame::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;pointer-events:none;
-    background:linear-gradient(to top, rgba(250,246,234,.75), transparent)}
-  @media(max-width:560px){.hero-frame{border-radius:20px}}
+  /* Le bas de l'illustration se fond dans le sable de la feuille */
+  .hero-frame::after{content:"";position:absolute;left:0;right:0;bottom:0;height:20%;pointer-events:none;
+    background:linear-gradient(to top, rgba(228,210,168,.85), transparent)}
+  @media(max-width:560px){.hero-frame{border-radius:16px}}
 
-  main{max-width:1080px;margin:0 auto;padding:0 1.4rem}
-  section{padding:4rem 0;border-top:1px solid var(--filet)}
+  /* MAIN — grande feuille de sable posée sur la mer (pourtour terre) */
+  main{width:calc(100% - 4rem);max-width:1000px;margin:0 auto 1.8rem;
+    padding:1rem 1.8rem 1.6rem;background:var(--sable);
+    border:1.5px solid var(--terre);border-radius:26px;
+    box-shadow:0 20px 50px rgba(20,45,70,.22)}
+  section{padding:3.4rem 0;border-top:1px solid var(--filet)}
   section:first-of-type{border-top:none}
   .sur{display:flex;align-items:center;gap:1rem;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--sous);margin-bottom:1.2rem}
   .sur::before{content:"";display:inline-block;width:40px;height:1px;background:var(--bleu);flex:none}
   .hero .sur{justify-content:flex-start}
   @media(max-width:820px){.hero .sur{justify-content:center}}
-  h2,#manifeste h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.25rem,5vw,3.75rem);line-height:1.15;margin:0 0 1.2rem;color:var(--encre)}
+  h2,#manifeste h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.25rem,5vw,3.75rem);line-height:1.15;margin:0 0 1.2rem;color:var(--kaki)}
   /* Second mouvement du manifeste : la grammaire du soin, sous les deux cartes */
   .grammaire-titre{margin-top:4.5rem}
   p{color:var(--texte);font-size:1.125rem;line-height:1.625}
@@ -179,7 +196,7 @@
   .monde{display:block;text-decoration:none;background:var(--carte);border:1px solid var(--filet);border-radius:16px;padding:1.4rem 1.5rem;transition:border-color .25s,transform .25s,box-shadow .25s}
   .monde:hover{border-color:var(--violet);transform:translateY(-2px);box-shadow:0 10px 30px rgba(46,125,91,.08)}
   .monde-tete{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap}
-  .monde-nom{font-family:var(--serif);font-size:1.3rem;color:var(--encre)}
+  .monde-nom{font-family:var(--serif);font-size:1.3rem;color:var(--kaki)}
   .monde-verbe{font-family:var(--serif);font-style:italic;font-size:1.05rem}
   .monde-etat{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--violet)}
   .monde.bientot .monde-etat{color:var(--brume)}
@@ -215,7 +232,7 @@
   .schema-icone{display:flex;justify-content:center;margin-bottom:.45rem}
   .schema-icone svg{width:22px;height:22px;stroke:var(--degrade-mi);stroke-width:1.6;fill:none;
     stroke-linecap:round;stroke-linejoin:round}
-  .schema-nom{display:block;font-family:var(--serif);font-weight:700;font-size:.98rem;color:var(--encre)}
+  .schema-nom{display:block;font-family:var(--serif);font-weight:700;font-size:.98rem;color:var(--kaki)}
   .schema-role{display:block;font-size:.8rem;color:var(--brume);margin-top:.2rem}
   /* Charte : MANA/TEMPO gras+MAJ, suffixe normal+minuscules */
   .mana-suf{font-weight:400;text-transform:lowercase}
@@ -241,7 +258,7 @@
   .part-pro{font-size:.85rem;color:var(--brume);border-top:1px dashed var(--filet);padding-top:.9rem;margin-top:.4rem}
   .part-pro a{color:var(--violet);text-decoration:none;font-weight:600}
   .part-pro a:hover{text-decoration:underline}
-  .socle h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,3vw,2.2rem);margin:.5rem 0 .3rem;color:var(--encre)}
+  .socle h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,3vw,2.2rem);margin:.5rem 0 .3rem;color:var(--kaki)}
   .socle .quoi{font-family:var(--serif);font-style:italic;font-size:1.15rem;margin:0 0 1rem}
   .socle p{font-size:.98rem;line-height:1.65;color:var(--texte);margin:0 0 1.3rem}
   .socle .btn{align-self:flex-start;margin-top:auto}
@@ -269,8 +286,8 @@
   button.submit{border:none;cursor:pointer;padding:.8rem;border-radius:12px;background:linear-gradient(90deg,var(--bleu),var(--violet));color:#fff;font-weight:600;font-size:.95rem}
   .contact-mot{font-family:var(--serif);font-style:italic;color:var(--brume);max-width:34ch}
 
-  footer{border-top:1px solid var(--filet);margin-top:2rem;padding:2.4rem 1.4rem;text-align:center;color:var(--brume);font-size:.8rem}
-  footer a{color:var(--violet);text-decoration:none}
+  footer{margin-top:.5rem;padding:2.4rem 1.4rem;text-align:center;color:#F3EAD2;font-size:.8rem;text-shadow:0 1px 3px rgba(20,45,70,.4)}
+  footer a{color:#FCEFD2;text-decoration:underline;text-underline-offset:2px}
 </style>
 </head>
 <body>

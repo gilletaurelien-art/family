@@ -567,41 +567,92 @@
       body=document.getElementById('mb-body'), input=document.getElementById('mb-input'),
       send=document.getElementById('mb-send'), closeBtn=panel.querySelector('.mb-close');
 
-  function reply(q){
+  /* ---- Supabase (clé anon publique) : on stocke le lead pour la relance ---- */
+  var SB_URL='https://qikrisvfxiuqwskkznkd.supabase.co';
+  var SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFpa3Jpc3ZmeGl1cXdza2t6bmtkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwNDQ1ODIsImV4cCI6MjA5NjYyMDU4Mn0.qXhI2CukSdYsnGbchm1Q7UfY_QaAafk9-hDX_xnY6EE';
+  function saveLead(l){
+    return fetch(SB_URL+'/rest/v1/manahome_leads',{
+      method:'POST',
+      headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json','Prefer':'return=minimal'},
+      body:JSON.stringify({name:l.name,postal_code:l.postal_code,email:l.email,source:'manahome-chat'})
+    }).then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return true; });
+  }
+
+  /* ---- Réponses libres (après la collecte) ---- */
+  function freeReply(q){
     var t=q.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
     var h=function(){for(var i=0;i<arguments.length;i++){if(t.indexOf(arguments[i])>-1)return true;}return false;};
-    if(h('bonjour','salut','coucou','bonsoir','hello')) return "Salutations. Je suis Mana, la voix de la maison mère. Ici veille une famille de mondes citoyens. Dites-moi ce que vous cherchez — je vous guide.";
-    if(h('proche','famille','family','memoire','cercle','transmettre')) return "Les Proches, c'est l'espace famille : veiller les uns sur les autres, garder la mémoire vivante, transmettre ce qui compte. Je peux vous y conduire — entrez par mana.bzh.";
-    if(h('territoire','voisin','entraide','solidarite','commune','benevole')) return "Le Territoire, c'est l'entraide entre voisins d'un même bassin de vie : donner une heure, recevoir un coup de main, reconnaître le temps partagé.";
-    if(h('constitution','droit','ethique','serment','donnee','rgpd','confiance','vendu')) return "Votre attention n'est jamais vendue, votre mémoire vous appartient. C'est la Constitution des droits numériques — chaque membre la signe à son arrivée.";
-    if(h('soin','care','aidant','prendre soin')) return "Prendre soin, ensemble : voilà notre raison d'etre. Rendre visible le temps donné, relier les proches et les voisins. C'est le cœur battant de notre maison.";
-    if(h('commencer','guide','comprendre','decouvrir','comment')) return "Le meilleur point de départ, c'est le Guide fondateur — quinze minutes, sans jargon, pour tout comprendre. Vous le trouverez plus bas sur cette page.";
-    if(h('rejoindre','inscrire','compte','gratuit','participer')) return "Rejoindre MANA est gratuit. Un seul geste depuis mana.bzh, et vous entrez — les Proches ou le Territoire, selon ce qui vous touche.";
-    if(h('mana','qui es','c est quoi','cest quoi','quoi')) return "MANA rend le soin visible, durable et transmissible. Une seule application, deux espaces : les Proches et le Territoire. Ici, la maison mère.";
-    if(h('merci','super','genial','parfait','bravo')) return "C'est un honneur de vous accompagner. Revenez quand vous le souhaitez — la maison est toujours ouverte.";
-    if(h('au revoir','aurevoir','bye','a bientot','ciao')) return "Que le soin vous accompagne. À bientôt, sous la même Constitution.";
-    return "Belle quête. Je veille sur tout ce qui touche au soin, aux deux espaces de MANA et à notre Constitution. Reformulez votre question, et je vous éclaire.";
+    if(h('proche','famille','family','memoire','cercle')) return "Les Proches, c'est l'espace famille : veiller les uns sur les autres, garder la mémoire vivante, transmettre ce qui compte.";
+    if(h('territoire','voisin','entraide','solidarite','benevole')) return "Le Territoire, c'est l'entraide entre voisins d'un même bassin de vie : donner une heure, recevoir un coup de main.";
+    if(h('constitution','droit','donnee','rgpd','confiance')) return "Votre attention n'est jamais vendue, votre mémoire vous appartient. C'est la Constitution des droits numériques de la personne.";
+    if(h('rejoindre','inscrire','compte','gratuit','commencer')) return "Rejoindre MANA est gratuit, depuis mana.bzh. Je vous préviendrai aussi par e-mail dès qu'il y a du nouveau près de chez vous.";
+    if(h('merci','super','genial','parfait','bravo')) return "C'est un honneur. Revenez quand vous le souhaitez — la maison est toujours ouverte.";
+    return "Je garde précieusement vos coordonnées. En attendant, tout est à explorer sur cette page — et vous pouvez rejoindre MANA quand vous voulez.";
   }
 
   function scroll(){ body.scrollTop=body.scrollHeight; }
   function orb(){ var a=document.createElement('img'); a.className='mb-av'; a.src='mana-chat.png'; a.alt='Mana'; return a; }
   function addMe(txt){ var r=document.createElement('div'); r.className='mb-row me'; var b=document.createElement('div'); b.className='mb-bub'; b.textContent=txt; r.appendChild(b); body.appendChild(r); scroll(); }
   function addMana(txt){ var r=document.createElement('div'); r.className='mb-row'; var b=document.createElement('div'); b.className='mb-bub'; b.textContent=txt; r.appendChild(orb()); r.appendChild(b); body.appendChild(r); scroll(); }
+  function addCTA(){
+    var r=document.createElement('div'); r.className='mb-row';
+    var a=document.createElement('a'); a.href='https://mana.bzh'; a.target='_blank'; a.rel='noopener'; a.textContent='Rejoindre MANA →';
+    a.style.cssText='display:inline-block;background:linear-gradient(135deg,#E4C583,#C9A227);color:#14261E;font-weight:700;text-decoration:none;padding:10px 18px;border-radius:999px;font-size:13.5px';
+    r.appendChild(orb()); r.appendChild(a); body.appendChild(r); scroll();
+  }
+
+  /* ---- Tunnel de collecte : prénom → code postal → e-mail ---- */
+  var step='name', lead={};
+  var reEmail=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function processTurn(q){
+    return new Promise(function(resolve){
+      if(step==='name'){
+        var n=q.trim();
+        if(n.length<2){ resolve({text:"Dites-moi juste comment vous appeler — un prénom ou un surnom, comme vous préférez."}); return; }
+        lead.name=n; step='postal';
+        resolve({text:"Enchantée, "+n+" ✨ Dans quelle commune vivez-vous ? Donnez-moi votre code postal."}); return;
+      }
+      if(step==='postal'){
+        var m=(q.match(/\d{5}/)||[])[0];
+        if(!m){ resolve({text:"Il me faut un code postal à 5 chiffres (par ex. 29160). Quel est le vôtre ?"}); return; }
+        lead.postal_code=m; step='email';
+        resolve({text:"Parfait. Enfin, à quelle adresse e-mail puis-je vous écrire pour vous prévenir dès que MANA arrive près de chez vous ? (Désinscription à tout moment.)"}); return;
+      }
+      if(step==='email'){
+        var e=q.trim();
+        if(!reEmail.test(e)){ resolve({text:"Hmm, cette adresse ne semble pas valide. Réessayez ? (par ex. vous@exemple.fr)"}); return; }
+        lead.email=e; step='done';
+        saveLead(lead).catch(function(err){ if(window.console) console.warn('lead non enregistré :', err); })
+          .then(function(){ resolve({text:"Merci "+lead.name+" 🌱 Je garde le lien et je vous écris bientôt. Quand vous serez prêt·e, rejoignez MANA — c'est gratuit et ça prend une minute.", cta:true}); });
+        return;
+      }
+      resolve({text:freeReply(q)});
+    });
+  }
 
   var busy=false;
+  function showDots(){ var r=document.createElement('div'); r.className='mb-row'; r.id='mb-dots'; var b=document.createElement('div'); b.className='mb-bub mb-dots'; b.innerHTML='<span></span><span></span><span></span>'; r.appendChild(orb()); r.appendChild(b); body.appendChild(r); scroll(); }
+  function hideDots(){ var d=document.getElementById('mb-dots'); if(d) d.remove(); }
   function submit(){
     var q=input.value.trim(); if(!q||busy) return;
-    input.value=''; addMe(q); busy=true;
-    var r=document.createElement('div'); r.className='mb-row'; r.id='mb-dots';
-    var b=document.createElement('div'); b.className='mb-bub mb-dots'; b.innerHTML='<span></span><span></span><span></span>';
-    r.appendChild(orb()); r.appendChild(b); body.appendChild(r); scroll();
-    setTimeout(function(){ var d=document.getElementById('mb-dots'); if(d) d.remove(); addMana(reply(q)); busy=false; }, 650);
+    input.value=''; addMe(q); busy=true; showDots();
+    var t0=setTimeout(function(){}, 0);
+    processTurn(q).then(function(res){
+      setTimeout(function(){ hideDots(); addMana(res.text); if(res.cta) addCTA(); busy=false; input.focus(); }, 500);
+    });
+  }
+
+  function startFunnel(){
+    addMana("Bonjour, je suis Mana 🌙 Ravie de vous accueillir dans la maison mère.");
+    addMana("Pour rester en lien et vous prévenir dès que MANA ouvre près de chez vous, puis-je vous poser trois petites questions ?");
+    addMana("Pour commencer — comment aimeriez-vous que je vous appelle ? Un prénom, ou un surnom.");
+    step='name';
   }
 
   btn.addEventListener('click', function(){
     panel.classList.toggle('open');
     if(panel.classList.contains('open')){
-      if(!body.childElementCount) addMana("Salutations, je suis Mana. Ici, la maison mère de notre univers. Que puis-je pour vous ?");
+      if(!body.childElementCount) startFunnel();
       input.focus();
     }
   });

@@ -80,13 +80,15 @@
   ::selection{background:#CFE7D6;color:#22331E}
 
   /* Conteneur commun — beaucoup d'air */
-  .wrap{max-width:1080px;margin:0 auto;padding:0 1.6rem}
-  section{padding:clamp(4.5rem,10vw,8.5rem) 0}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 1.8rem}
+  /* Beaucoup d'air + une coupe nette entre chaque section */
+  section{padding:clamp(6rem,13vw,12rem) 0}
+  section + section{border-top:1px solid var(--filet)}
   h1,h2{font-family:var(--serif);color:var(--kaki);letter-spacing:-.01em;margin:0}
-  h2{font-weight:400;font-size:clamp(2.1rem,5vw,3.4rem);line-height:1.12}
-  .eyebrow{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;font-weight:700;
-    color:var(--sous);margin:0 0 1.1rem}
-  .lead{font-size:clamp(1.15rem,2vw,1.35rem);line-height:1.6;color:var(--texte)}
+  h2{font-weight:400;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.12}
+  .eyebrow{font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;font-weight:700;
+    color:var(--sous);margin:0 0 1.6rem}
+  .lead{font-size:clamp(1.18rem,2vw,1.4rem);line-height:1.65;color:var(--texte)}
 
   /* Boutons */
   .btn{display:inline-flex;align-items:center;gap:.4rem;padding:.85rem 1.7rem;border-radius:999px;
@@ -97,27 +99,41 @@
   .btn.ghost{background:none;color:var(--kaki);border:1.5px solid rgba(95,110,50,.4);box-shadow:none}
   .btn.ghost:hover{border-color:var(--kaki);background:rgba(95,110,50,.05)}
 
-  /* Header — barre fine et discrète */
-  header{position:fixed;top:0;left:0;right:0;z-index:30;backdrop-filter:blur(12px);
+  /* Header — barre fine ; tout est dans le menu, sauf la connexion */
+  header{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(12px);
     background:rgba(251,247,238,.82);border-bottom:1px solid var(--filet)}
   body{padding-top:62px}
-  .nav{max-width:1120px;margin:0 auto;padding:0 1.6rem;height:62px;display:flex;
+  .nav{max-width:1120px;margin:0 auto;padding:0 1.8rem;height:62px;display:flex;
     align-items:center;justify-content:space-between;gap:1rem}
   .mark{display:flex;align-items:center;gap:.7rem;text-decoration:none}
   .mark img{height:28px;width:28px;object-fit:contain}
   .mark-name{font-size:13px;letter-spacing:.18em;font-weight:700;text-transform:uppercase;color:var(--encre)}
-  .nav ul{list-style:none;display:flex;gap:1.9rem;margin:0;padding:0;font-size:13px}
-  .nav ul a{text-decoration:none;color:var(--brume);transition:color .15s}
-  .nav ul a:hover{color:var(--encre)}
-  @media(max-width:860px){.nav ul{display:none}}
-  .nav-actions{display:flex;align-items:center;gap:.55rem;flex-shrink:0}
-  .nav-btn{display:inline-block;padding:.5rem 1.05rem;border-radius:999px;font-size:12.5px;font-weight:700;
+  .nav-actions{display:flex;align-items:center;gap:.75rem;flex-shrink:0}
+  .nav-btn{display:inline-block;padding:.55rem 1.15rem;border-radius:999px;font-size:12.5px;font-weight:700;
     letter-spacing:.02em;white-space:nowrap;text-decoration:none;
     background:linear-gradient(100deg,var(--riviere),var(--mousse));color:#fff;
     box-shadow:0 4px 14px rgba(46,125,91,.22);transition:filter .2s,transform .2s}
   .nav-btn:hover{filter:brightness(1.07);transform:translateY(-1px)}
-  .nav-btn.ghost{background:none;color:var(--kaki);border:1px solid rgba(95,110,50,.4);box-shadow:none}
-  @media(max-width:460px){.nav-btn{padding:.45rem .8rem;font-size:11.5px}}
+  @media(max-width:460px){.nav-btn{padding:.5rem .95rem;font-size:12px}}
+  /* Bouton hamburger — présent à toutes les tailles */
+  .burger{width:42px;height:42px;border:0;background:none;cursor:pointer;padding:0;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+  .burger span{display:block;width:22px;height:2px;background:var(--encre);border-radius:2px;
+    transition:transform .3s ease, opacity .2s ease}
+  .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  /* Menu plein écran */
+  .menu{position:fixed;inset:0;z-index:40;background:rgba(251,247,238,.98);backdrop-filter:blur(16px);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;visibility:hidden;transition:opacity .3s ease, visibility .3s ease}
+  .menu.open{opacity:1;visibility:visible}
+  .menu-nav{display:flex;flex-direction:column;align-items:center;gap:clamp(1.5rem,4vw,2.6rem)}
+  .menu-nav a{font-family:var(--serif);color:var(--kaki);text-decoration:none;
+    font-size:clamp(1.9rem,5vw,3rem);line-height:1;letter-spacing:-.01em;
+    transition:color .18s ease, transform .18s ease}
+  .menu-nav a:hover{color:var(--mousse);transform:translateY(-2px)}
+  body.menu-open{overflow:hidden}
 
   /* ===== HERO — presque toute la hauteur, très respirant ===== */
   .hero{min-height:calc(100svh - 62px);display:flex;flex-direction:column;justify-content:center;
@@ -133,8 +149,8 @@
   @media(max-width:560px){.hero-frame{border-radius:18px}}
 
   /* ===== SECTION 2 — une maison, deux espaces ===== */
-  .sec-espaces{text-align:center}
-  .sec-espaces h2{margin-bottom:clamp(1.8rem,4vw,2.8rem)}
+  .sec-espaces{text-align:center;background:var(--fond-2)}
+  .sec-espaces h2{margin-bottom:clamp(2.6rem,5vw,3.8rem)}
   /* Carte · Maison · Carte — comme le mockup (la maison relie les deux espaces) */
   .espaces{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(1rem,2.5vw,2.2rem);
     text-align:left;align-items:center;justify-items:center}
@@ -162,9 +178,8 @@
   .espace.proches .entrer{color:var(--corail)}
   .espace.territoire .entrer{color:var(--mousse)}
 
-  /* ===== SECTION 3 — pourquoi MANA ? ===== */
-  .sec-pourquoi{background:var(--fond-2);border-top:1px solid var(--filet);border-bottom:1px solid var(--filet)}
-  .pourquoi-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+  /* ===== SECTION 3 — pourquoi MANA ? (bande ivoire) ===== */
+  .pourquoi-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,5rem);align-items:center}
   @media(max-width:820px){.pourquoi-grid{grid-template-columns:1fr;gap:2.6rem;text-align:center}}
   .pourquoi-txt p{font-size:clamp(1.2rem,2.2vw,1.5rem);line-height:1.5;color:var(--encre);
     font-family:var(--serif);margin:0 0 .3rem}
@@ -175,9 +190,9 @@
   .grammaire{margin:0 auto;max-width:460px;width:100%}
   .grammaire img{display:block;width:100%;height:auto;mix-blend-mode:multiply}
 
-  /* ===== SECTION 4 — notre promesse ===== */
-  .sec-promesse{text-align:center}
-  .promesse{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin:2.6rem 0;text-align:left}
+  /* ===== SECTION 4 — notre promesse (bande blanche) ===== */
+  .sec-promesse{text-align:center;background:var(--fond-2)}
+  .promesse{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;margin:clamp(3rem,6vw,4.5rem) 0;text-align:left}
   @media(max-width:640px){.promesse{grid-template-columns:1fr}}
   .prom{background:var(--carte);border:1px solid var(--filet);border-radius:20px;
     padding:clamp(1.5rem,2.6vw,2rem);box-shadow:var(--ombre-douce);display:flex;gap:1rem;align-items:flex-start}
@@ -185,29 +200,30 @@
     stroke-linecap:round;stroke-linejoin:round;margin-top:.15rem}
   .prom p{margin:0;font-size:clamp(1.1rem,2vw,1.28rem);line-height:1.4;color:var(--encre);font-family:var(--serif)}
 
-  /* ===== SECTION 5 — la Terre de MANA ===== */
-  .sec-terre{text-align:center;background:var(--fond-2);border-top:1px solid var(--filet);border-bottom:1px solid var(--filet)}
-  .sec-terre h2{margin-bottom:1.4rem}
-  .terre-txt{max-width:30ch;margin:0 auto 2.2rem;font-family:var(--serif);
+  /* ===== SECTION 5 — la Terre de MANA (bande ivoire) ===== */
+  .sec-terre{text-align:center}
+  .sec-terre h2{margin-bottom:clamp(1.6rem,3vw,2.2rem)}
+  .terre-txt{max-width:30ch;margin:0 auto clamp(2.4rem,5vw,3.2rem);font-family:var(--serif);
     font-size:clamp(1.2rem,2.3vw,1.55rem);line-height:1.5;color:var(--texte)}
-  .terre-frame{max-width:940px;margin:0 auto 2.4rem;border-radius:26px;overflow:hidden;
+  .terre-frame{max-width:940px;margin:0 auto clamp(2.6rem,5vw,3.4rem);border-radius:26px;overflow:hidden;
     box-shadow:var(--ombre);border:1px solid var(--filet)}
   .terre-frame img{display:block;width:100%;height:auto}
   @media(max-width:560px){.terre-frame{border-radius:18px}}
 
-  /* ===== SECTION 6 — commencer ===== */
-  .sec-commencer{text-align:center}
-  .commencer-frame{max-width:820px;margin:1.6rem auto 2.6rem;border-radius:24px;overflow:hidden;
+  /* ===== SECTION 6 — commencer (bande blanche) ===== */
+  .sec-commencer{text-align:center;background:var(--fond-2)}
+  .sec-commencer h2{margin-bottom:clamp(1.8rem,4vw,2.6rem)}
+  .commencer-frame{max-width:820px;margin:0 auto clamp(2.6rem,5vw,3.6rem);border-radius:24px;overflow:hidden;
     box-shadow:var(--ombre-douce);border:1px solid var(--filet)}
   .commencer-frame img{display:block;width:100%;height:auto}
-  .guide-star{max-width:620px;margin:0 auto;background:var(--carte);border:1px solid var(--filet);
-    border-radius:24px;padding:clamp(2rem,4vw,2.8rem);box-shadow:var(--ombre)}
+  .guide-star{max-width:620px;margin:0 auto;background:var(--fond);border:1px solid var(--filet);
+    border-radius:24px;padding:clamp(2.2rem,4vw,3rem);box-shadow:var(--ombre)}
   .guide-star h3{font-family:var(--serif);font-weight:700;font-size:clamp(1.6rem,3.4vw,2.2rem);
     color:var(--kaki);margin:0 0 .6rem}
   .guide-star p{margin:0 auto 1.6rem;max-width:46ch;color:var(--brume);font-size:1.05rem}
   .guide-cta{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
-  .plus-loin{margin-top:3rem}
-  .plus-loin .eyebrow{margin-bottom:1.4rem}
+  .plus-loin{margin-top:clamp(3.5rem,7vw,5.5rem)}
+  .plus-loin .eyebrow{margin-bottom:1.6rem}
   .plus-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;max-width:620px;margin:0 auto}
   @media(max-width:560px){.plus-grid{grid-template-columns:1fr}}
   .plus{display:block;background:var(--carte);border:1px solid var(--filet);border-radius:16px;
@@ -240,18 +256,39 @@
       <img src="Logo_MANA_Symbol_logo.png" alt="MANA">
       <span class="mark-name">MANA<span style="font-weight:400;text-transform:lowercase">home</span></span>
     </a>
-    <ul>
-      <li><a href="#espaces">L'application</a></li>
-      <li><a href="#pourquoi">Pourquoi</a></li>
-      <li><a href="#commencer">Commencer</a></li>
-      <li><a href="https://constitution.manahome.org">Constitution</a></li>
-    </ul>
     <div class="nav-actions">
-      <a class="nav-btn ghost" href="https://pro.manafrance.org">Partenaires</a>
-      <a class="nav-btn" href="https://mana.bzh">Rejoindre</a>
+      <a class="nav-btn" href="https://mana.bzh">Se connecter</a>
+      <button id="burger" class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 </header>
+
+<!-- Menu plein écran — tout, sauf la connexion -->
+<div id="menu" class="menu" role="dialog" aria-modal="true" aria-label="Menu">
+  <nav class="menu-nav">
+    <a href="#espaces">L'application</a>
+    <a href="#pourquoi">Pourquoi MANA</a>
+    <a href="#commencer">Commencer</a>
+    <a href="https://constitution.manahome.org">Constitution</a>
+    <a href="https://pro.manafrance.org">Partenaires</a>
+  </nav>
+</div>
+<script>
+(function(){
+  var burger=document.getElementById('burger'), menu=document.getElementById('menu');
+  function setOpen(o){
+    menu.classList.toggle('open', o);
+    burger.setAttribute('aria-expanded', o?'true':'false');
+    burger.setAttribute('aria-label', o?'Fermer le menu':'Ouvrir le menu');
+    document.body.classList.toggle('menu-open', o);
+  }
+  burger.addEventListener('click', function(){ setOpen(!menu.classList.contains('open')); });
+  menu.addEventListener('click', function(e){ if(e.target.tagName==='A' || e.target===menu) setOpen(false); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') setOpen(false); });
+})();
+</script>
 
 <!-- ===== 1 · HERO — qu'est-ce que c'est ? ===== -->
 <section class="hero wrap" aria-label="MANA — prendre soin, ensemble">

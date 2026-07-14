@@ -154,6 +154,13 @@
   h2,#manifeste h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.25rem,5vw,3.75rem);line-height:1.15;margin:0 0 1.2rem;color:var(--kaki)}
   /* Second mouvement du manifeste : la grammaire du soin, sous les deux cartes */
   .grammaire-titre{margin-top:4.5rem}
+  /* La grammaire illustrée — les trois forces en image (cadre terre) */
+  .grammaire-fig{margin:1.8rem 0 0;text-align:center}
+  .grammaire-fig img{display:block;width:100%;max-width:920px;margin:0 auto;border-radius:22px;
+    border:1.5px solid var(--terre);box-shadow:0 20px 46px rgba(20,45,70,.20)}
+  @media(max-width:560px){.grammaire-fig img{border-radius:16px}}
+  .grammaire-fig figcaption{margin:1.1rem auto 0;max-width:46ch;font-family:var(--serif);
+    font-style:italic;color:var(--kaki);font-size:clamp(1rem,1.6vw,1.15rem);line-height:1.5}
   p{color:var(--texte);font-size:1.125rem;line-height:1.625}
   .lead{max-width:52ch;font-size:clamp(1.125rem,2vw,1.25rem)}
 
@@ -381,12 +388,11 @@
 
     <!-- Second mouvement — la grammaire du soin, les trois forces -->
     <h2 class="grammaire-titre">La grammaire du soin.</h2>
-    <p class="lead">Partout où l'on prend soin les uns des autres, trois forces sont à l'œuvre. L'application MANA les porte dans ses deux espaces — les Proches et le Territoire, chacun à sa manière.</p>
-    <div class="piliers">
-      <div class="pilier"><h3 class="grad">La Présence</h3><p>Ce qui fait vivre. Le geste porté à l'autre, ici et maintenant — le moteur.</p></div>
-      <div class="pilier"><h3 class="grad">La Mémoire</h3><p>Ce qui fait durer. Ce que l'on transmet et qui ne s'efface pas — le volant d'inertie.</p></div>
-      <div class="pilier"><h3 class="grad">Le Lien</h3><p>Ce qui relie. La gravité discrète qui tient l'ensemble et lui donne son sens.</p></div>
-    </div>
+    <p class="lead">Partout où l'on prend soin les uns des autres, trois forces sont à l'œuvre — la <strong>Présence</strong>, la <strong>Mémoire</strong>, le <strong>Lien</strong>. L'application MANA les porte dans ses deux espaces, les Proches et le Territoire, chacun à sa manière.</p>
+    <figure class="grammaire-fig">
+      <img src="grammaire-du-soin.jpg" alt="Les trois forces du soin, en cercles : la Présence (ce qui fait vivre — le geste porté à l'autre, ici et maintenant), la Mémoire (ce qui fait durer — ce que l'on transmet et qui ne s'efface pas), le Lien (ce qui relie — la gravité discrète qui tient l'ensemble), entre Les Proches et Le Territoire.">
+      <figcaption>La Présence fait vivre. La Mémoire fait durer. Le Lien fait tenir. Ensemble, elles nourrissent notre monde.</figcaption>
+    </figure>
   </section>
 
   <!-- SCHÉMA — l'écosystème d'un coup d'œil -->

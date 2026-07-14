@@ -544,13 +544,13 @@
 </style>
 
 <button id="mb-btn" aria-label="Parlez à Mana">
-  <img class="mb-orb" src="deesse-gold-face.png" alt="Mana, la Déesse">
+  <img class="mb-orb" src="mana-chat.png" alt="Mana, la Déesse">
   <span class="mb-cta">Une question&nbsp;?<small>Parlez à Mana</small></span>
 </button>
 
 <div id="mb-panel" role="dialog" aria-label="Mana">
   <div class="mb-head">
-    <img class="mb-orb" style="width:38px;height:38px" src="deesse-gold-face.png" alt="">
+    <img class="mb-orb" style="width:38px;height:38px" src="mana-chat.png" alt="">
     <div><b>Mana</b><span>La maison mère</span></div>
     <button class="mb-close" aria-label="Fermer">&times;</button>
   </div>
@@ -584,7 +584,7 @@
   }
 
   function scroll(){ body.scrollTop=body.scrollHeight; }
-  function orb(){ var a=document.createElement('img'); a.className='mb-av'; a.src='deesse-gold-face.png'; a.alt='Mana'; return a; }
+  function orb(){ var a=document.createElement('img'); a.className='mb-av'; a.src='mana-chat.png'; a.alt='Mana'; return a; }
   function addMe(txt){ var r=document.createElement('div'); r.className='mb-row me'; var b=document.createElement('div'); b.className='mb-bub'; b.textContent=txt; r.appendChild(b); body.appendChild(r); scroll(); }
   function addMana(txt){ var r=document.createElement('div'); r.className='mb-row'; var b=document.createElement('div'); b.className='mb-bub'; b.textContent=txt; r.appendChild(orb()); r.appendChild(b); body.appendChild(r); scroll(); }
 

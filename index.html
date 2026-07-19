@@ -151,6 +151,16 @@
   .hero-frame a{display:block}
   .hero-frame img{display:block;width:100%;height:auto}
   .hero-text{padding-top:clamp(.5rem,2vw,1.5rem)}
+  /* Hero « Terre de MANA » : le texte d'accroche est plus long, on l'élargit */
+  .hero .sub.large{max-width:46ch}
+  .hero .sub strong{color:var(--kaki)}
+
+  /* ===== SECTION 2 — Prendre soin, ensemble (accroche produit) ===== */
+  .sec-soin{text-align:center}
+  .sec-soin h2{font-family:var(--serif);font-weight:700;color:var(--kaki);
+    font-size:clamp(2.4rem,6vw,4rem);line-height:1.04;letter-spacing:-.02em;margin:0 0 1.2rem}
+  .sec-soin .lead{max-width:40ch;margin:0 auto 2.2rem}
+  .sec-soin .hero-cta{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
 
   /* ===== SECTION 2 — le temps de l'entraide (illustration pleine) ===== */
   .sec-espaces{text-align:center}
@@ -280,21 +290,33 @@
 })();
 </script>
 
-<!-- ===== 1 · HERO — qu'est-ce que c'est ? ===== -->
-<section class="hero" aria-label="MANA — prendre soin, ensemble">
+<!-- ===== 1 · HERO — La Terre de MANA ===== -->
+<section class="hero" aria-label="La Terre de MANA">
   <div class="hero-frame">
-    <!-- Toute l'illustration mène à l'application -->
-    <a href="https://app.manafrance.org" aria-label="Entrer dans MANA">
+    <!-- Toute l'illustration mène à mana.bzh -->
+    <a href="https://mana.bzh" aria-label="Rejoindre la Terre de MANA">
       <picture>
         <!-- Mobile : version portrait ; desktop : version paysage, pleine largeur -->
-        <source media="(max-width:640px)" srcset="manahomehero-pwa.jpg">
-        <img src="manahomehero.jpg" alt="Une maison, deux espaces : MANAfamily — Les proches — et MANAfrance — Le territoire — autour de la Maison MANA.">
+        <source media="(max-width:640px)" srcset="voilier-pwa.jpg">
+        <img src="manasail.jpg" alt="Une famille sur un voilier MANA vogue vers la Terre de MANA : une côte accueillante avec un phare, un village et la Maison Mana, au soleil couchant.">
       </picture>
     </a>
   </div>
   <div class="wrap hero-text">
-    <h1>Prendre soin,<br>ensemble.</h1>
-    <p class="sub">Une seule application pour veiller sur ses proches, s'entraider et transmettre ce qui compte vraiment.</p>
+    <h1>La Terre de MANA.</h1>
+    <p class="sub large"><strong>Tout commence en Finistère.</strong> MANA arrive en Bretagne : en Penn&nbsp;Ar&nbsp;Bed, ce territoire où l'entraide est toute naturelle. Des voisins. Des familles. Des associations. Une Maison MANA. Un même horizon.</p>
+    <div class="hero-cta">
+      <a class="btn" href="https://mana.bzh">Rejoindre mana.bzh</a>
+      <a class="btn ghost" href="#soin">Découvrir MANA</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2 · PRENDRE SOIN, ENSEMBLE — accroche produit ===== -->
+<section id="soin" class="sec-soin">
+  <div class="wrap">
+    <h2>Prendre soin,<br>ensemble.</h2>
+    <p class="lead">Une seule application pour veiller sur ses proches, s'entraider et transmettre ce qui compte vraiment.</p>
     <div class="hero-cta">
       <a class="btn" href="https://app.manafrance.org">Rejoindre gratuitement</a>
       <a class="btn ghost" href="#espaces">Découvrir MANA</a>
@@ -302,7 +324,7 @@
   </div>
 </section>
 
-<!-- ===== 2 · UNE MAISON, DEUX ESPACES — pourquoi ça m'intéresse ? ===== -->
+<!-- ===== 3 · UNE MAISON, DEUX ESPACES — pourquoi ça m'intéresse ? ===== -->
 <section id="espaces" class="sec-espaces">
   <div class="wrap">
     <h2 class="sr-only">Le temps de l'entraide devient notre richesse commune.</h2>
@@ -371,23 +393,7 @@
   </div>
 </section>
 
-<!-- ===== 5 · LA TERRE DE MANA ===== -->
-<section id="terre" class="sec-terre">
-  <div class="wrap">
-    <h2>La Terre de MANA.</h2>
-    <p class="terre-txt"><strong>Tout commence en Finistère.</strong> MANA arrive en Bretagne : en Penn&nbsp;Ar&nbsp;Bed, ce territoire où l'entraide est toute naturelle. Des voisins. Des familles. Des associations. Une Maison MANA. Un même horizon.</p>
-    <div class="terre-frame">
-      <picture>
-        <!-- Mobile : version portrait ; desktop : version paysage -->
-        <source media="(max-width:640px)" srcset="voilier-pwa.jpg">
-        <img class="zoomable" src="manasail.jpg" alt="Une famille sur un voilier MANA vogue vers la Terre de MANA : une côte accueillante avec un phare, un village et la Maison Mana, au soleil couchant.">
-      </picture>
-    </div>
-    <a class="btn" href="https://mana.bzh">Rejoindre mana.bzh</a>
-  </div>
-</section>
-
-<!-- ===== 6 · COMMENCER — comment commencer ? ===== -->
+<!-- ===== 5 · COMMENCER — comment commencer ? ===== -->
 <section id="commencer" class="sec-commencer">
   <div class="wrap">
   <span class="eyebrow">Commencer</span>
